@@ -1,0 +1,37 @@
+
+
+article {
+	margin: 0;
+}
+
+details {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.container > nav ul input {
+  margin: 8px 0;
+}
+
+ul.tabs {
+  display: flex;
+}
+
+ul.tabs li {
+  list-style: none;
+  margin-right: 8px;
+}
+
+ul.tabs li a {
+  text-decoration: none;
+}
+
+ul.tabs li:last-child {
+  margin-right: 0;
+}
+
+article header {
+  display: flex;
+  padding-bottom: 0;
+  justify-content: space-between;
+}
