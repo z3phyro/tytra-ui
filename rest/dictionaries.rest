@@ -1,4 +1,4 @@
-GET http://localhost:5174/api/dictionaries
+GET http://localhost:5173/api/dictionaries
 
 ### 
-GET http://localhost:5174/api/translations/english
+GET http://localhost:5173/api/translations/english

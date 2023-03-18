@@ -1,13 +1,15 @@
-import { readTranslation } from '@z3phyro/typed-translations/dist/translation';
 import { error } from '@sveltejs/kit';
-import type { RequestHandler } from '../$types';
+import { readTypedFile } from '@z3phyro/typed-translations/dist/io';
+import type { RequestHandler } from './$types';
 
 export const GET = (({ params }) => {
-	const language = params.language;
-	if (!readTranslation) {
-		throw error(500, "Can't access the translations");
+	if (!readTypedFile) {
+		throw error(500, "Can't access library");
 	}
 
-	const result = readTranslation(language);
+	console.log(params.language);
+
+	const result = readTypedFile(`${params.language}.translation.ts`);
+
 	return new Response(JSON.stringify(result));
 }) satisfies RequestHandler;

@@ -11,4 +11,5 @@ interface General {
 }
 interface About {
   outsoucing: string;
+  another: string;
 }

@@ -4,7 +4,8 @@ export const EnglishTranslation: TranslationInterface = {
   general: {
     hello: "Hello World!",
     about: {
-      outsoucing: "About outsourcing"
+      outsoucing: "About outsourcing",
+      another: "An Other"
     }
   },
   about: {

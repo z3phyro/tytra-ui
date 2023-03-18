@@ -34,6 +34,6 @@
 	"type": "module",
 	"dependencies": {
 		"@picocss/pico": "^1.5.7",
-		"@z3phyro/typed-translations": "^0.2.3"
+		"@z3phyro/typed-translations": "^0.2.7"
 	}
 }

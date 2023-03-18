@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { lang } from '../../core/stores/main.store';
+
 	export let translation: { [id: string]: string } = {};
 	export let level = 0;
 	export let dicts: { [id: string]: string } = {};
@@ -28,9 +30,17 @@
 					<span>
 						{getFullPath(key)}
 					</span>
-					<ul class="tabs">
+					<ul class="tabs links">
 						{#each Object.keys(dicts) as dict}
-							<li><a href="" data-tooltip={dicts[dict]}>{dict}</a></li>
+							<li
+								on:click|preventDefault={(e) => {
+									$lang = dict;
+								}}
+								class:active={$lang == dict}
+								data-tooltip={dicts[dict]}
+							>
+								{dict}
+							</li>
 						{/each}
 					</ul>
 				</header>

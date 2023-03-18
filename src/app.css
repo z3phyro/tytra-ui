@@ -26,6 +26,15 @@ ul.tabs li a {
   text-decoration: none;
 }
 
+ul.links li {
+  color: var(--contrast);
+  cursor: pointer;
+}
+
+ul.links li.active {
+  color: var(--primary);
+}
+
 ul.tabs li:last-child {
   margin-right: 0;
 }
@@ -34,4 +43,10 @@ article header {
   display: flex;
   padding-bottom: 0;
   justify-content: space-between;
+}
+
+.no-select {
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
 }
