@@ -1,4 +1,5 @@
 import { writable } from 'svelte/store';
+export const dicts = writable<any>('');
 export const search = writable('');
 export const lang = writable('');
 

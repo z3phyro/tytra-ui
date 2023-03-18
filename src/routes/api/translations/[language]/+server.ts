@@ -1,4 +1,6 @@
 import { error } from '@sveltejs/kit';
+//  eslint-disable-next-line
+// @ts-ignore
 import { readTypedFile } from '@z3phyro/typed-translations/dist/io';
 import type { RequestHandler } from './$types';
 

@@ -1,21 +1,20 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import Tree from '../components/tree/tree.svelte';
-	import { lang, search } from '../core/stores/main.store';
+	import { dicts, lang, search } from '../core/stores/main.store';
 	import { getRequest } from '../core/utils/request';
 
 	let translations: any = {};
-	let dicts: any = { loading: 'data' };
 
 	onMount(async () => {
-		dicts = await getRequest('api/dictionaries');
+		$dicts = await getRequest('api/dictionaries');
 
 		if (!$lang) {
-			$lang = Object.keys(dicts)[0];
+			$lang = Object.keys($dicts)[0];
 		}
 
-		Object.keys(dicts).forEach(async (language) => {
-			translations[language] = await getRequest(`api/translations/${dicts[language]}`);
+		Object.keys($dicts).forEach(async (language) => {
+			translations[language] = await getRequest(`api/translations/${$dicts[language]}`);
 		});
 	});
 
@@ -37,5 +36,5 @@
 </script>
 
 <main class="container">
-	<Tree translation={filteredTranslation} {dicts} search={$search} />
+	<Tree translation={filteredTranslation} dicts={$dicts} search={$search} />
 </main>
