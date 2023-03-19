@@ -22,10 +22,11 @@
 				path={getFullPath(key)}
 				{dicts}
 				{search}
+				bind:lang
 				level={level + 1}
 			/>
 		{:else}
-			<Card fullPath={getFullPath(key)} {dicts} {lang} value={translation[key]} />
+			<Card fullPath={getFullPath(key)} {dicts} bind:lang value={translation[key]} />
 		{/if}
 	</details>
 {/each}

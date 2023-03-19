@@ -2,7 +2,10 @@
 	import '@picocss/pico';
 	import '../app.css';
 	import TopBar from '../views/top-bar/top-bar.svelte';
+	import Notifications from 'svelte-notifications';
 </script>
 
-<TopBar />
-<slot />
+<Notifications>
+	<TopBar />
+	<slot />
+</Notifications>

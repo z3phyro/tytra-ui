@@ -77,3 +77,12 @@ span.outlined {
   border-radius: 4px;
   background: rgba(0,0,0,.4);
 }
+
+.mini-button {
+  cursor: pointer; 
+  display: inline;
+}
+
+.mini-button:hover {
+  color: var(--primary);
+}
