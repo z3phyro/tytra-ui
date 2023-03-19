@@ -5,7 +5,7 @@ export const SpanishTranslation: TranslationInterface = {
 		hello: 'Hola Mundo',
 		about: {
 			outsoucing: 'Acerca de eso mismo',
-			another: 'Otro'
+			another: '-'
 		}
 	},
 	about: {
