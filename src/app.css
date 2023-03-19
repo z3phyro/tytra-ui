@@ -72,6 +72,11 @@ summary  {
   border-color: rgb(220 38 38);
 }
 
+.danger {
+  background-color: rgb(220 38 38);
+  border-color: rgb(220 38 38);
+}
+
 span.outlined {
   padding: 4px; 
   border-radius: 4px;
@@ -96,3 +101,4 @@ span.outlined {
   top: -30px;
   right: 0px;
 }
+

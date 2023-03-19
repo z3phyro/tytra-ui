@@ -2,9 +2,10 @@
 	import IconLink from '../icons/icon-link.svelte';
 	import MiniButton from '../mini-button/mini-button.svelte';
 	import TextArea from '../text-area/text-area.svelte';
-	import { putRequest } from '../../core/utils/request';
+	import { deleteRequest, putRequest } from '../../core/utils/request';
 	import { errorNotification, successNotification } from '../../core/utils/notifications';
 	import { getNotificationsContext } from 'svelte-notifications';
+	import ConfirmModal from '../confirm-modal/confirm-modal.svelte';
 
 	export let fullPath = '';
 	export let dicts: any;
@@ -39,6 +40,21 @@
 		}
 
 		saving = false;
+	};
+
+	let confirmingDeletion = false;
+	const deleteAction = () => {
+		confirmingDeletion = true;
+	};
+
+	const confirmDelete = async () => {
+		try {
+			await deleteRequest(`api/translations/${fullPath}`);
+			successNotification(addNotification, 'Translation updated');
+		} catch (e: any) {
+			errorNotification(addNotification, e.toString());
+		}
+		confirmingDeletion = false;
 	};
 </script>
 
@@ -88,7 +104,19 @@
 			<button disabled={saving} class="outline" on:click={toggleEdit}>Cancel</button>
 			<button disabled={saving} on:click={saveEdition}>Save</button>
 		{:else}
+			<button class="outline" on:click={deleteAction}>Remove</button>
 			<button on:click={toggleEdit}>Edit</button>
 		{/if}
 	</div>
 </article>
+
+{#if confirmingDeletion}
+	<ConfirmModal
+		title={'Removing an entire set of translations'}
+		description={`This operation will remove the translation on all languages. 
+	Are you sure you want to continue?`}
+		okText={'Yes'}
+		onCancel={() => (confirmingDeletion = false)}
+		onConfirm={() => confirmDelete()}
+	/>
+{/if}
