@@ -5,7 +5,7 @@ export const EnglishTranslation: TranslationInterface = {
 		hello: 'Hello World!',
 		about: {
 			outsoucing: 'About outsourcing',
-			another: 'An Other'
+			another: '-'
 		}
 	},
 	about: {

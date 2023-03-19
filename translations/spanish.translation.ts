@@ -4,8 +4,8 @@ export const SpanishTranslation: TranslationInterface = {
 	general: {
 		hello: 'Hola Mundo',
 		about: {
-			outsoucing: 'Acerca de eso mismo',
-			another: '-'
+			outsoucing: '-',
+			another: 'Todo'
 		}
 	},
 	about: {

@@ -36,5 +36,5 @@
 </script>
 
 <main class="container">
-	<Tree translation={filteredTranslation} dicts={$dicts} search={$search} />
+	<Tree translation={filteredTranslation} dicts={$dicts} search={$search} lang={$lang} />
 </main>

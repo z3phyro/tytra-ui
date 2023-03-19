@@ -1,7 +1,8 @@
 import { writable } from 'svelte/store';
-export const dicts = writable<any>('');
+export const dicts = writable<any>({});
 export const search = writable('');
-export const lang = writable('');
+export const lang = writable('en');
+export const coverage = writable<any>({});
 
 // search.subscribe((value) => {
 // 	if (value && typeof history != 'undefined' && typeof window != 'undefined') {

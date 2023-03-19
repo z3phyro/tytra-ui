@@ -1,11 +1,11 @@
 <script lang="ts">
-	import { lang } from '../../core/stores/main.store';
-
+	import Card from '../card/card.svelte';
 	export let translation: { [id: string]: string } = {};
 	export let level = 0;
 	export let dicts: { [id: string]: string } = {};
 	export let path = '';
 	export let search = '';
+	export let lang = 'en';
 
 	const getFullPath = (key: string) => {
 		if (!path) return key;
@@ -25,27 +25,7 @@
 				level={level + 1}
 			/>
 		{:else}
-			<article>
-				<header>
-					<span>
-						{getFullPath(key)}
-					</span>
-					<ul class="tabs links">
-						{#each Object.keys(dicts) as dict}
-							<li
-								on:click|preventDefault={(e) => {
-									$lang = dict;
-								}}
-								class:active={$lang == dict}
-								data-tooltip={dicts[dict]}
-							>
-								{dict}
-							</li>
-						{/each}
-					</ul>
-				</header>
-				{translation[key]}
-			</article>
+			<Card fullPath={getFullPath(key)} {dicts} {lang} value={translation[key]} />
 		{/if}
 	</details>
 {/each}
