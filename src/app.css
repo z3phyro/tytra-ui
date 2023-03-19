@@ -86,3 +86,13 @@ span.outlined {
 .mini-button:hover {
   color: var(--primary);
 }
+
+.relative {
+  position: relative;
+}
+
+.relative .floating-right {
+  position: absolute;
+  top: -30px;
+  right: 0px;
+}

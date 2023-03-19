@@ -381,10 +381,10 @@
     "@typescript-eslint/types" "5.55.0"
     eslint-visitor-keys "^3.3.0"
 
-"@z3phyro/tytra-core@^0.1.8":
-  version "0.1.8"
-  resolved "https://registry.yarnpkg.com/@z3phyro/tytra-core/-/tytra-core-0.1.8.tgz#4c7bf5728e8918cd7d336201684ae28c4d34e564"
-  integrity sha512-/kHgR6IEDEvsKwffQQlfcO+6WfklBf3CxmQo3d0Mr2/p+Zw03wHGQW7lkXz6SDBBVkdG8Otyqa1XWLWp0UkMzA==
+"@z3phyro/tytra-core@^0.1.10":
+  version "0.1.10"
+  resolved "https://registry.yarnpkg.com/@z3phyro/tytra-core/-/tytra-core-0.1.10.tgz#47d86884628d24eea474f46d568549ce4d6f24b8"
+  integrity sha512-hlrk1Sc5U89xJRtBxxIjP/DIxjo3dYaAmwPscXhcLlN/EV3uFixUnUmv52CMM+HFFK19xowc2xiB5/HuRLIJ6w==
 
 acorn-jsx@^5.3.2:
   version "5.3.2"
