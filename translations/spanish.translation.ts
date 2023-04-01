@@ -2,12 +2,13 @@ import { TranslationInterface } from "./translation.interface";
 
 export const SpanishTranslation: TranslationInterface = {
   general: {
-    hello: "Hola Mundo222",
     about: {
-      another: "Todo"
+      another: "Todo 2"
     }
   },
   about: {
-    company: "Compania"
+    company: "Compania",
+    something: "l",
+    me: "i"
   }
 };

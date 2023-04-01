@@ -99,7 +99,6 @@
 		<div />
 		<div />
 		<div />
-		<div />
 		{#if edit}
 			<button disabled={saving} class="outline" on:click={toggleEdit}>Cancel</button>
 			<button disabled={saving} on:click={saveEdition}>Save</button>
