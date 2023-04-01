@@ -1,7 +1,6 @@
 {
-	"name": "typed-translations-ui",
-	"version": "0.0.1",
-	"private": true,
+	"name": "@z3phyro/tytra-ui",
+	"version": "0.0.2",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
@@ -12,6 +11,12 @@
 		"test:unit": "vitest",
 		"lint": "prettier --plugin-search-dir . --check . && eslint .",
 		"format": "prettier --plugin-search-dir . --write ."
+	},
+	"files": [
+		"build"
+	],
+	"bin": {
+		"tytra-ui": "./build/index.js"
 	},
 	"devDependencies": {
 		"@playwright/test": "^1.28.1",
@@ -34,7 +39,8 @@
 	"type": "module",
 	"dependencies": {
 		"@picocss/pico": "^1.5.7",
-		"@z3phyro/tytra-core": "^0.1.10",
+		"@sveltejs/adapter-node": "^1.2.3",
+		"@z3phyro/tytra-core": "^0.1.20",
 		"svelte-notifications": "^0.9.98"
 	}
 }

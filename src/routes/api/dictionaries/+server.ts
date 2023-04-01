@@ -1,6 +1,4 @@
 import { error } from '@sveltejs/kit';
-//  eslint-disable-next-line
-// @ts-ignore
 import { getDictionaries } from '@z3phyro/tytra-core';
 import type { RequestHandler } from './$types';
 

@@ -8,7 +8,7 @@ export const EnglishTranslation: TranslationInterface = {
   },
   about: {
     company: "Company",
-    something: "a",
+    something: "SOMETHING TO REMIND",
     me: "M"
   }
 };

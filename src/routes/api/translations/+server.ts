@@ -1,5 +1,3 @@
-//  eslint-disable-next-line
-// @ts-ignore
 import { addTranslation } from '@z3phyro/tytra-core';
 import type { RequestHandler } from './$types';
 
