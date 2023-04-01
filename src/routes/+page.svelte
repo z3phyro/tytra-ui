@@ -18,17 +18,32 @@
 		});
 	});
 
-	const filterKey = (obj: any, search: string, level = 0) => {
+	const filterKey = (obj: any, search: string, level = 0, currPath = '') => {
 		return Object.keys(obj).reduce((cur: any, key: string) => {
-			if (search && search.split('.').length > level) {
-				if (!key.includes(search.split('.')[level])) {
+			const tempPath = currPath ? currPath + '.' + key : 'key';
+
+			if (typeof obj[key] == 'object') {
+				const tempObj: any = filterKey(
+					obj[key],
+					search,
+					level + 1,
+					currPath ? currPath + '.' + key : key
+				);
+
+				if (Object.keys(tempObj).length) {
+					return Object.assign(cur, {
+						[key]: tempObj
+					});
+				} else {
 					return cur;
 				}
-				if (typeof obj[key] == 'object')
-					return Object.assign(cur, { [key]: filterKey(obj[key], search, level + 1) });
 			}
 
-			return Object.assign(cur, { [key]: obj[key] });
+			if (tempPath.includes(search)) {
+				Object.assign(cur, { [key]: obj[key] });
+			}
+
+			return cur;
 		}, {});
 	};
 
