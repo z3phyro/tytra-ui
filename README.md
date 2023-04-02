@@ -1,38 +1,41 @@
-# create-svelte
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+![TyTra](./tytra.png)
+# Typed Translations UI - TyTra-UI
 
-## Creating a project
+UI for typed translations package (TyTra). It allows to use most of the functions of TyTra/core, including, initializing the project.
 
-If you're seeing this, you've probably already done this step. Congrats!
+# Installation
 
+## Install the dependency
 ```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
+npm i -D @z3phyro/tytra-ui
 ```
 
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
 ```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+yarn add -D @z3phyro/tytra-ui
 ```
 
-## Building
+## Setup project package.json script
 
-To create a production version of your app:
-
-```bash
-npm run build
+```json
+{
+  "scripts": {
+    // Here you can change the port
+    "tytra-ui": "PORT=8123 node ./node_modules/.bin/tytraui"
+  }
+}
 ```
 
-You can preview the production build with `npm run preview`.
+## Run it!
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+```bash
+npm run tytra-ui
+```
+
+# Important consideration
+
+At the moment TyTra-UI doesn't use any security measures so if you decide to publish the url using a tool like <b>ngrok</b> or just host it using <b>Nginx</b> be aware of the fact this project reads and writes files in your codebase.
+
+So, be sure to either use an unknown url, or use a vpn or some other security measures by yourself.
+
+Also to share with other people that might help translating we recommend running it on a separate branch so you can see the changes on a PR before merging with the source code.
