@@ -1,7 +1,7 @@
 {
 	"name": "@z3phyro/tytra-ui",
 	"description": "UI for typed translations package (TyTra). It allows to use most of the functions of TyTra/core, including, initializing the project.",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
@@ -16,6 +16,7 @@
 	"files": [
 		"build"
 	],
+	"license": "ISC",
 	"bin": {
 		"tytra-ui": "./build/index.js"
 	},
