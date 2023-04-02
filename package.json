@@ -42,6 +42,18 @@
 		"vite": "^4.0.0",
 		"vitest": "^0.25.3"
 	},
+	"keywords": [
+		"translation",
+		"typed",
+		"i18n",
+		"typescript",
+		"javascript",
+		"library",
+		"svelte",
+		"react",
+		"vue",
+		"solidjs"
+	],
 	"type": "module",
 	"dependencies": {
 		"@picocss/pico": "^1.5.7",
