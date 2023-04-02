@@ -7,6 +7,7 @@
 	import { getNotificationsContext } from 'svelte-notifications';
 	import ConfirmModal from '../confirm-modal/confirm-modal.svelte';
 	import { coverage, loadCoverage, loadTranslations } from '../../core/stores/main.store';
+	import { page } from '$app/stores';
 
 	export let fullPath = '';
 	export let dicts: any;
@@ -82,6 +83,11 @@
 				<li
 					on:click|preventDefault={(e) => {
 						lang = dict;
+
+						let query = $page.url.searchParams;
+						query.set('lang', dict);
+						const newUrl = `${window.location.pathname}?${query.toString()}`;
+						window.history.pushState({}, '', newUrl);
 					}}
 					class:error={$coverage[dict]?.paths?.includes(fullPath)}
 					class:active={lang == dict}
