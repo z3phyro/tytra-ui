@@ -1,5 +1,6 @@
 import { writable } from 'svelte/store';
 import { getRequest } from '../utils/request';
+import { goto } from '$app/navigation';
 export const dicts = writable<any>({});
 export const search = writable('');
 export const lang = writable('en');
@@ -7,7 +8,12 @@ export const coverage = writable<any>({});
 export const translations = writable<any>({});
 
 export const loadDicts = async () => {
-	dicts.set(await getRequest('api/dictionaries'));
+	const result = await getRequest('api/dictionaries');
+	if (!Object.keys(result).length) {
+		goto('/init');
+	} else {
+		dicts.set(result);
+	}
 };
 
 export const loadCoverage = async () => {
