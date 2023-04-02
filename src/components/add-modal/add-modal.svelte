@@ -40,7 +40,7 @@
 	<article>
 		<h3>Add a new translation</h3>
 		<label for="">Path</label>
-		<input bind:value={termPath} style="width: 500px; max-width: 100%" />
+		<input bind:value={termPath} autofocus style="width: 500px; max-width: 100%" />
 
 		{#each Object.keys(dicts) as dict}
 			<label for={dict}>{dicts[dict]}</label>

@@ -28,7 +28,7 @@
 		>
 			{key}
 			<MiniButton
-				style={'position: absolute; top:12px; right: 40px'}
+				style={'position: absolute; top:12px; right: 40px; color: white !important'}
 				onClick={() => (addVisible = !addVisible)}
 			>
 				<IconPlusCircle />
@@ -50,5 +50,5 @@
 {/each}
 
 {#if addVisible}
-	<AddModal {dicts} onCancel={() => (addVisible = false)} termPath={`${path}.`} />
+	<AddModal {dicts} onCancel={() => (addVisible = false)} termPath={path ? `${path}.` : ''} />
 {/if}

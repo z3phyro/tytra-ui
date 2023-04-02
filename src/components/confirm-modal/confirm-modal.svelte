@@ -6,6 +6,7 @@
 	export let onConfirm = () => {};
 
 	export let okText = 'Confirm';
+	export let okClass = 'info';
 	export let cancelText = 'Cancel';
 </script>
 
@@ -17,7 +18,7 @@
 		</p>
 		<footer>
 			<a href="#cancel" role="button" class="secondary" on:click={onCancel}>{cancelText}</a>
-			<a href="#confirm" role="button" on:click={onConfirm}>{okText}</a>
+			<a href="#confirm" role="button" class={okClass} on:click={onConfirm}>{okText}</a>
 		</footer>
 	</article>
 </dialog>

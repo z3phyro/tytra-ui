@@ -6,6 +6,7 @@
 	import { errorNotification, successNotification } from '../../core/utils/notifications';
 	import { getNotificationsContext } from 'svelte-notifications';
 	import ConfirmModal from '../confirm-modal/confirm-modal.svelte';
+	import { coverage, loadCoverage, loadTranslations } from '../../core/stores/main.store';
 
 	export let fullPath = '';
 	export let dicts: any;
@@ -34,6 +35,9 @@
 				editValue
 			});
 
+			loadTranslations();
+			loadCoverage();
+
 			successNotification(addNotification, 'Translation updated');
 		} catch (e: any) {
 			errorNotification(addNotification, e.toString());
@@ -50,6 +54,7 @@
 	const confirmDelete = async () => {
 		try {
 			await deleteRequest(`api/translations/${fullPath}`);
+			loadTranslations();
 			successNotification(addNotification, 'Translation updated');
 		} catch (e: any) {
 			errorNotification(addNotification, e.toString());
@@ -71,13 +76,14 @@
 			</MiniButton>
 			{fullPath}
 		</span>
-		<ul class="tabs links">
+		<ul class="tabs links" style="justify-content: flex-end">
 			{#each Object.keys(dicts) as dict}
 				<!-- svelte-ignore a11y-click-events-have-key-events -->
 				<li
 					on:click|preventDefault={(e) => {
 						lang = dict;
 					}}
+					class:error={$coverage[dict]?.paths?.includes(fullPath)}
 					class:active={lang == dict}
 					data-tooltip={dicts[dict]}
 				>
@@ -114,7 +120,8 @@
 		title={'Removing an entire set of translations'}
 		description={`This operation will remove the translation on all languages. 
 	Are you sure you want to continue?`}
-		okText={'Yes'}
+		okText={'Remove'}
+		okClass="danger"
 		onCancel={() => (confirmingDeletion = false)}
 		onConfirm={() => confirmDelete()}
 	/>

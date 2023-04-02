@@ -32,9 +32,19 @@
 	<article>
 		<h3>Add a new dictionary</h3>
 		<label for="shortName">Short Name</label>
-		<input name="shortName" bind:value={shortName} style="width: 500px; max-width: 100%" />
+		<input
+			name="shortName"
+			placeholder="eg. en"
+			bind:value={shortName}
+			style="width: 500px; max-width: 100%"
+		/>
 		<label for="name">Name</label>
-		<input name="name" bind:value={name} style="width: 500px; max-width: 100%" />
+		<input
+			name="name"
+			placeholder="eg. English"
+			bind:value={name}
+			style="width: 500px; max-width: 100%"
+		/>
 
 		<footer>
 			<a href="#" role="button" class="secondary" on:click={onCancel}>Cancel</a>

@@ -7,6 +7,7 @@
 	import {
 		dicts,
 		lang,
+		loadCoverage,
 		loadDicts,
 		loadTranslations,
 		search,
@@ -16,7 +17,9 @@
 	onMount(async () => {
 		await loadDicts();
 
-		loadTranslations();
+		await loadTranslations();
+
+		await loadCoverage();
 	});
 
 	const filterKey = (obj: any, search: string, level = 0, currPath = '') => {

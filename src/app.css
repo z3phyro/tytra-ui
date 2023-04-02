@@ -32,7 +32,12 @@ ul.links li {
 }
 
 ul.links li.active {
-  color: var(--primary);
+  color: var(--primary) !important;
+}
+
+ul.links li.error {
+  color: #DC2626;
+  background: transparent;
 }
 
 ul.tabs li:last-child {
