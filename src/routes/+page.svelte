@@ -1,21 +1,22 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import AddModal from '../components/add-modal/add-modal.svelte';
+	import IconPlusCircle from '../components/icons/icon-plus-circle.svelte';
+	import IconPlus from '../components/icons/icon-plus.svelte';
 	import Tree from '../components/tree/tree.svelte';
-	import { dicts, lang, search } from '../core/stores/main.store';
-	import { getRequest } from '../core/utils/request';
-
-	let translations: any = {};
+	import {
+		dicts,
+		lang,
+		loadDicts,
+		loadTranslations,
+		search,
+		translations
+	} from '../core/stores/main.store';
 
 	onMount(async () => {
-		$dicts = await getRequest('api/dictionaries');
+		await loadDicts();
 
-		if (!$lang) {
-			$lang = Object.keys($dicts)[0];
-		}
-
-		Object.keys($dicts).forEach(async (language) => {
-			translations[language] = await getRequest(`api/translations/${$dicts[language]}`);
-		});
+		loadTranslations();
 	});
 
 	const filterKey = (obj: any, search: string, level = 0, currPath = '') => {
@@ -47,9 +48,18 @@
 		}, {});
 	};
 
-	$: filteredTranslation = filterKey(translations[$lang] ?? {}, $search);
+	$: filteredTranslation = filterKey($translations[$lang] ?? {}, $search);
+
+	let addVisible = false;
 </script>
 
 <main class="container">
+	<button class="success" on:click={() => (addVisible = true)}>
+		<span style="margin-bottom: 20px; margin-right: 4px"><IconPlusCircle /></span>Add translation
+	</button>
 	<Tree translation={filteredTranslation} dicts={$dicts} search={$search} bind:lang={$lang} />
 </main>
+
+{#if addVisible}
+	<AddModal dicts={$dicts} onCancel={() => (addVisible = false)} termPath={''} />
+{/if}
