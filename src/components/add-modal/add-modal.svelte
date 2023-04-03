@@ -21,10 +21,7 @@
 		try {
 			await postRequest('api/translations/', {
 				fullPath: termPath,
-				values: Object.values(addDicts).reduce(
-					(prev, curr) => (prev ? prev + ' ' + curr : curr),
-					''
-				)
+				values: Object.values(addDicts)
 			});
 
 			onCancel();
@@ -42,9 +39,9 @@
 		<label for="">Path</label>
 		<input bind:value={termPath} autofocus style="width: 500px; max-width: 100%" />
 
-		{#each Object.keys(dicts) as dict}
+		{#each Object.keys(dicts) as dict, index}
 			<label for={dict}>{dicts[dict]}</label>
-			<TextArea bind:value={addDicts[dict]} minRows={4} maxRows={5} />
+			<TextArea bind:value={addDicts[index]} minRows={4} maxRows={5} />
 		{/each}
 		<footer>
 			<a href="#" role="button" class="secondary" on:click={onCancel}>Cancel</a>
