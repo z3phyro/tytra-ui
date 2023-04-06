@@ -21,7 +21,7 @@ yarn add -D @z3phyro/tytra-ui
 {
   "scripts": {
     // Here you can change the port
-    "tytra-ui": "PORT=8123 node ./node_modules/.bin/tytraui"
+    "tytra-ui": "PORT=8123 node ./node_modules/.bin/tytra-ui"
   }
 }
 ```
