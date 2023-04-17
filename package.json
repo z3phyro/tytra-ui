@@ -1,10 +1,11 @@
 {
 	"name": "@z3phyro/tytra-ui",
 	"description": "UI for typed translations package (TyTra). It allows to use most of the functions of TyTra/core, including, initializing the project.",
-	"version": "0.0.6",
+	"version": "0.0.7",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
+		"postbuild": "echo '#!/usr/bin/env node' | cat - build/index.js > temp && mv temp build/index.js",
 		"preview": "vite preview",
 		"test": "playwright test",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
